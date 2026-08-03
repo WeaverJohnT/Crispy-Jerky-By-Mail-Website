@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crispy Jerky By Mail - Honolulu Beef Jerky</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        /* Header & Navigation */
+        header {
+            background: #1a1a1a;
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 2rem;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #d4a574;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #8b4513 0%, #a0522d 100%);
+            color: white;
+            padding: 6rem 2rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            font-weight: 900;
+            letter-spacing: 2px;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: #d4a574;
+            color: #1a1a1a;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .cta-button:hover {
+            background: #e8c28f;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+
+        /* Products Section */
+        .products {
+            padding: 5rem 2rem;
+            background: #f9f7f4;
+        }
+
+        .products h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #1a1a1a;
+        }
+
+        .products-subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 3rem;
+            font-size: 1.1rem;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            background: #e9e9e9;
+        }
+
+        .product-info {
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .product-flavor {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #8b4513;
+            margin-bottom: 0.5rem;
+        }
+
+        .product-description {
+            color: #666;
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+        }
+
+        .product-price {
+            font-size: 1.8rem;
+            color: #1a1a1a;
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Info Section */
+        .info {
+            background: white;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #8b4513;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .info-item {
+            padding: 1.5rem;
+        }
+
+        .info-item h4 {
+            color: #1a1a1a;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Order Section */
+        .order-section {
+            background: linear-gradient(135deg, #8b4513 0%, #a0522d 100%);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .order-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .order-section p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        /* Footer */
+        footer {
+            background: #1a1a1a;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+
+        footer p {
+            opacity: 0.8;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            nav a {
+                margin-left: 1rem;
+                font-size: 0.9rem;
+            }
+
+            .products h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">🥩 Crispy Jerky</div>
+                <nav>
+                    <a href="#products">Flavors</a>
+                    <a href="#info">Info</a>
+                    <a href="#order">Order</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Crispy Jerky By Mail</h1>
+            <p>Premium Beef Jerky Made in Honolulu</p>
+            <p style="font-size: 1rem; opacity: 0.9;">Fresh, delicious, and shipped straight to your door</p>
+            <a href="#order" class="cta-button">Order Now</a>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products" id="products">
+        <div class="container">
+            <h2>Our Flavors</h2>
+            <p class="products-subtitle">Choose from three irresistible flavors</p>
+
+            <div class="products-grid">
+                <!-- Product 1 -->
+                <div class="product-card">
+                    <img src="web_IMG_0291.jpeg" alt="Garlic Black Pepper" class="product-image">
+                    <div class="product-info">
+                        <div class="product-flavor">Garlic Black Pepper</div>
+                        <p class="product-description">Bold and savory with a perfect kick. A classic favorite that keeps you coming back.</p>
+                        <div class="product-price">$11.00</div>
+                    </div>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="product-card">
+                    <img src="web_IMG_0294.jpeg" alt="Sweet Teriyaki" class="product-image">
+                    <div class="product-info">
+                        <div class="product-flavor">Sweet Teriyaki</div>
+                        <p class="product-description">Sweet and savory with Asian-inspired flavors. Perfect for those who prefer a touch of sweetness.</p>
+                        <div class="product-price">$11.00</div>
+                    </div>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="product-card">
+                    <img src="web_IMG_0295.jpeg" alt="Spicy Teriyaki" class="product-image">
+                    <div class="product-info">
+                        <div class="product-flavor">Spicy Teriyaki</div>
+                        <p class="product-description">Spicy kick with sweet teriyaki goodness. For those who like their jerky with heat.</p>
+                        <div class="product-price">$11.00</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Info Section -->
+    <section class="info" id="info">
+        <div class="container">
+            <h3>Why Choose Crispy Jerky By Mail?</h3>
+
+            <div class="info-grid">
+                <div class="info-item">
+                    <h4>🏝️ Made in Honolulu</h4>
+                    <p>Crafted fresh in Honolulu with quality ingredients</p>
+                </div>
+                <div class="info-item">
+                    <h4>📦 Shipped by Mail</h4>
+                    <p>Convenient delivery straight to your door via US Mail</p>
+                </div>
+                <div class="info-item">
+                    <h4>💵 All-Inclusive Pricing</h4>
+                    <p>$11 per bag includes tax and shipping. No hidden fees!</p>
+                </div>
+                <div class="info-item">
+                    <h4>✨ Premium Quality</h4>
+                    <p>Crispy, flavorful, and made with care</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Order Section -->
+    <section class="order-section" id="order">
+        <div class="container">
+            <h2>Ready to Order?</h2>
+            <p>Select your flavors, choose quantities, and we'll ship your order fresh</p>
+            <a href="#order-form" class="cta-button" style="color: #1a1a1a;">Order Your Jerky</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Crispy Jerky By Mail. All rights reserved. | Made in Honolulu 🌺</p>
+        </div>
+    </footer>
+</body>
+</html>
