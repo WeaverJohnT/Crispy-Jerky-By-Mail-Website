@@ -139,10 +139,58 @@
 
         .product-image {
             width: 100%;
-            height: 250px;
+            height: 400px;
             object-fit: cover;
             background: #e9e9e9;
             transform: rotate(90deg);
+            cursor: pointer;
+            transition: opacity 0.3s;
+        }
+
+        .product-image:hover {
+            opacity: 0.8;
+        }
+
+        /* Modal for enlarged image */
+        .image-modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.8);
+            align-items: center;
+            justify-content: center;
+        }
+
+        .image-modal.active {
+            display: flex;
+        }
+
+        .image-modal-content {
+            max-width: 90%;
+            max-height: 90vh;
+        }
+
+        .image-modal-content img {
+            width: 100%;
+            height: auto;
+        }
+
+        .image-modal-close {
+            position: absolute;
+            top: 20px;
+            right: 40px;
+            color: white;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .image-modal-close:hover {
+            color: #d4a574;
         }
 
         .product-info {
@@ -352,11 +400,54 @@
         </div>
     </section>
 
+    <!-- Image Modal -->
+    <div id="imageModal" class="image-modal">
+        <span class="image-modal-close">&times;</span>
+        <div class="image-modal-content">
+            <img id="modalImage" src="" alt="Enlarged product image">
+        </div>
+    </div>
+
     <!-- Footer -->
     <footer>
         <div class="container">
             <p>&copy; 2026 Crispy Jerky By Mail. All rights reserved. | Made in Honolulu 🌺</p>
         </div>
     </footer>
+
+    <script>
+        // Image modal functionality
+        const modal = document.getElementById('imageModal');
+        const modalImg = document.getElementById('modalImage');
+        const closeBtn = document.querySelector('.image-modal-close');
+        const productImages = document.querySelectorAll('.product-image');
+
+        // Open modal when image is clicked
+        productImages.forEach(img => {
+            img.addEventListener('click', function() {
+                modal.classList.add('active');
+                modalImg.src = this.src;
+            });
+        });
+
+        // Close modal when X is clicked
+        closeBtn.addEventListener('click', function() {
+            modal.classList.remove('active');
+        });
+
+        // Close modal when clicking outside the image
+        modal.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                modal.classList.remove('active');
+            }
+        });
+
+        // Close modal on ESC key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                modal.classList.remove('active');
+            }
+        });
+    </script>
 </body>
 </html>
