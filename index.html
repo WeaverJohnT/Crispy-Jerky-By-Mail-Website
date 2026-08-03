@@ -97,6 +97,28 @@
             box-shadow: 0 6px 20px rgba(0,0,0,0.3);
         }
 
+        /* Collection Banner */
+        .collection-banner {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            padding: 2rem 0;
+            background: white;
+        }
+
+        .banner-image {
+            max-width: 100%;
+            height: auto;
+            max-height: 500px;
+            object-fit: contain;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .banner-image:hover {
+            transform: scale(1.02);
+        }
+
         /* Products Section */
         .products {
             padding: 5rem 2rem;
@@ -326,6 +348,11 @@
         </div>
     </section>
 
+    <!-- Collection Banner -->
+    <section class="collection-banner">
+        <img src="web_IMG_3691.jpeg" alt="Complete Crispy Jerky Collection" class="banner-image">
+    </section>
+
     <!-- Products Section -->
     <section class="products" id="products">
         <div class="container">
@@ -421,7 +448,7 @@
         const modal = document.getElementById('imageModal');
         const modalImg = document.getElementById('modalImage');
         const closeBtn = document.querySelector('.image-modal-close');
-        const productImages = document.querySelectorAll('.product-image');
+        const productImages = document.querySelectorAll('.product-image, .banner-image');
 
         // Open modal when image is clicked
         productImages.forEach(img => {
